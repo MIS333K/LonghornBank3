@@ -21,14 +21,15 @@
 
     Protected Sub btnEmployeeLogin_Click(sender As Object, e As EventArgs) Handles btnEmployeeLogin.Click
 
-        Dim strEmpID As String
-        Dim strManPassword As String
+        Dim strCusEmail As String
+        Dim strCusPassword As String
         Dim Valid As New ClassValidate
+        Dim CustomerDB As New ClassCustomerDB
 
         'check id for letters
-        strEmpID = Valid.CheckDigits(txtEmpLoginID.Text)
+        strCusEmail = Valid.CheckDigits(txtEmpLoginID.Text)
         'if id contains letters then bad login
-        If strEmpID = False Then
+        If strCusEmail = False Then
             lblMessage.Text = "Incorrect Employee ID or password"
             EmployeeLoginVisible()
             Exit Sub
@@ -36,9 +37,9 @@
 
 
         'validate username
-        strEmpID = DB.CheckEmpID(txtEmpLoginID.Text)
+        strCusEmail = CustomerDB.CheckEmail(txtEmpLoginID.Text)
         'if username bad,
-        If strEmpID = False Then
+        If strCusEmail = False Then
             ' message and exit
             lblMessage.Text = "Incorrect Employee username or password"
             EmployeeLoginVisible()
@@ -46,9 +47,9 @@
         End If
 
         'checkpassword
-        strManPassword = DB.CheckPassword(txtEmpLoginPassword.Text)
-        'if password bad,
-        If strManPassword = False Then
+        strCusPassword = CustomerDB.CheckPassword(txtEmpLoginPassword.Text)
+        'if password bad
+        If strCusPassword = False Then
             'message and exit
             lblMessage.Text = ("Incorrect Employee username or password")
             EmployeeLoginVisible()
@@ -93,5 +94,61 @@
     Public Sub EmployeeLoginVisible()
         CustomerLoginPanel.Visible = False
         EmployeeLoginPanel.Visible = True
+    End Sub
+
+    Protected Sub btnCustomerLogin_Click(sender As Object, e As EventArgs) Handles btnCustomerLogin.Click
+        Dim strCusID As String
+        Dim strCusPassword As String
+        Dim Valid As New ClassValidate
+
+        'check id for letters
+        strCusID = Valid.CheckDigits(txtCusLoginID.Text)
+        'if id contains letters then bad login
+        If strCusID = False Then
+            lblCusLoginMessage.Text = "Incorrect E-mail or Password"
+            CustomerLoginVisible()
+            Exit Sub
+        End If
+
+
+        'validate username
+        strCusID = DB.CheckEmpID(txtCusLoginID.Text)
+        'if username bad,
+        If strCusID = False Then
+            ' message and exit
+            lblCusLoginMessage.Text = "Incorrect E-mail ID or Password"
+            CustomerLoginVisible()
+            Exit Sub
+        End If
+
+        'checkpassword
+        strCusPassword = DB.CheckPassword(txtCusLoginPassword.Text)
+        'if password bad,
+        If strCusPassword = False Then
+            'message and exit
+            lblCusLoginMessage.Text = ("Incorrect E-mail or Password")
+            CustomerLoginVisible()
+            Exit Sub
+        End If
+
+
+
+
+        ''if good login ...
+        'lblError.Text = ("good login")
+
+        'Response.Redirect("WebForm2.aspx")
+
+        ''if not good login
+        ''add 1 to count 
+        ''if 3 or greater then 
+        ''   disable login 
+
+
+
+        'create session EmpType and store this employee's information there for next form 
+        Session("EmpType") = DB.CustDataset.Tables("tblemployee").Rows(0).Item("EmpType").ToString 'you get this out of row zero in emp dataset
+        'call next page (view customers)
+        Response.Redirect("CusHome.aspx")
     End Sub
 End Class

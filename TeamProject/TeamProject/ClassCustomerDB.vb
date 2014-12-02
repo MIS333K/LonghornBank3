@@ -151,11 +151,11 @@ Public Class ClassCustomerDB
         'author: Jee-Ho Kang
         'input:   string
         'returns: true or false
-        mstrQuery = "select * from tblClients where Email='" & strEmail & "'"
+        mstrQuery = "select * from tblCustomers where EmailAddr='" & strEmail & "'"
         SelectQuery(mstrQuery)
 
         'check to see how many rows returned 
-        If mDatasetCustomers.Tables("tblClients").Rows.Count = 0 Then
+        If mDatasetCustomers.Tables("tblCustomers").Rows.Count = 0 Then
             Return False
         Else
             Return True
@@ -170,7 +170,7 @@ Public Class ClassCustomerDB
         'compare the password on the form to the passord in row zero of the dataset
         'if it matches, return True
         'if it doesn't, return False
-        If strPassword = mDatasetCustomers.Tables("tblClients").Rows(0).Item("Password").ToString() Then
+        If strPassword = mDatasetCustomers.Tables("tblCustomers").Rows(0).Item("Password").ToString() Then
             Return True
         Else
             Return False

@@ -42,3 +42,14 @@ C:\Users\Susie\Desktop\JeeHo\TeamProject\TeamProject\bin\TeamProject.pdb
 C:\Users\Susie\Desktop\JeeHo\TeamProject\TeamProject\bin\TeamProject.xml
 C:\Users\Susie\Desktop\JeeHo\TeamProject\TeamProject\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\Susie\Desktop\JeeHo\TeamProject\TeamProject\bin\Microsoft.Web.Infrastructure.xml
+C:\Users\Susie\Desktop\GitHub\LonghornBank3\TeamProject\TeamProject\bin\TeamProject.dll
+C:\Users\Susie\Desktop\GitHub\LonghornBank3\TeamProject\TeamProject\bin\TeamProject.pdb
+C:\Users\Susie\Desktop\GitHub\LonghornBank3\TeamProject\TeamProject\bin\TeamProject.xml
+C:\Users\Susie\Desktop\GitHub\LonghornBank3\TeamProject\TeamProject\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Susie\Desktop\GitHub\LonghornBank3\TeamProject\TeamProject\bin\Microsoft.Web.Infrastructure.xml
+C:\Users\Susie\Desktop\GitHub\LonghornBank3\TeamProject\TeamProject\obj\Debug\TeamProject.vbprojResolveAssemblyReference.cache
+C:\Users\Susie\Desktop\GitHub\LonghornBank3\TeamProject\TeamProject\obj\Debug\TeamProject.Resources.resources
+C:\Users\Susie\Desktop\GitHub\LonghornBank3\TeamProject\TeamProject\obj\Debug\TeamProject.vbproj.GenerateResource.Cache
+C:\Users\Susie\Desktop\GitHub\LonghornBank3\TeamProject\TeamProject\obj\Debug\TeamProject.dll
+C:\Users\Susie\Desktop\GitHub\LonghornBank3\TeamProject\TeamProject\obj\Debug\TeamProject.xml
+C:\Users\Susie\Desktop\GitHub\LonghornBank3\TeamProject\TeamProject\obj\Debug\TeamProject.pdb

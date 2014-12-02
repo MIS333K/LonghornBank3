@@ -157,8 +157,8 @@
     <Content Include="CusSavAcc.aspx" />
     <Content Include="CusStoPor.aspx" />
     <Content Include="CusTransfer.aspx" />
-    <Content Include="fakelogo.jpg" />
     <Content Include="LandingPage.aspx" />
+    <Content Include="LonghornBankLogo.jpg" />
     <Content Include="StyleSheet1.css" />
     <Content Include="Web.config" />
   </ItemGroup>

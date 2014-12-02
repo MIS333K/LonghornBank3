@@ -17,13 +17,16 @@
                 <asp:Label ID="Label1" runat="server" Text="Customer ID"></asp:Label>
                 <br /><asp:TextBox ID="txtCusLoginID" runat="server"></asp:TextBox><br />
                 <asp:Label ID="Label2" runat="server" Text="Password"></asp:Label>
-                <br /><asp:TextBox ID="CusLoginPassword" runat="server"></asp:TextBox>
+                <br /><asp:TextBox ID="txtCusLoginPassword" runat="server"></asp:TextBox>
                 <br /><br />
                 <asp:Button ID="btnCustomerLogin" runat="server" Text="Login" />
                 <br /><br />
                 <asp:LinkButton ID="LinkButton1" runat="server">Forgot Password?</asp:LinkButton>
                 <br />
                 <asp:LinkButton ID="LinkButton2" runat="server">Activate New Account</asp:LinkButton>
+                <br />
+                <br />
+                <asp:Label ID="lblCusLoginMessage" runat="server" ForeColor="Red"></asp:Label>
             </div>
         </asp:Panel>
 

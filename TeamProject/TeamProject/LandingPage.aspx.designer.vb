@@ -68,13 +68,13 @@ Partial Public Class LandingPage
     Protected WithEvents Label2 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''CusLoginPassword control.
+    '''txtCusLoginPassword control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents CusLoginPassword As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txtCusLoginPassword As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''btnCustomerLogin control.
@@ -102,6 +102,15 @@ Partial Public Class LandingPage
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents LinkButton2 As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''lblCusLoginMessage control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblCusLoginMessage As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''EmployeeLoginPanel control.
