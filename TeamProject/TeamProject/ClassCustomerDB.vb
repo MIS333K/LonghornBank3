@@ -36,7 +36,7 @@ Public Class ClassCustomerDB
 
     Public Sub GetAllCustomers()
         Dim strQuery As String
-        strQuery = "select * from tblClients ORDER BY LastName"
+        strQuery = "select * from tblCustomers ORDER BY LastName"
         SelectQuery(strQuery)
 
     End Sub
@@ -56,7 +56,7 @@ Public Class ClassCustomerDB
             'clear the dataset before filling
             mDatasetCustomers.Clear()
             'fill the dataset
-            mdbDataAdapter.Fill(mDatasetCustomers, "tblClients")
+            mdbDataAdapter.Fill(mDatasetCustomers, "tblCustomers")
             mdbConn.Close()
         Catch ex As Exception
             Throw New Exception("Query is " & strQuery.ToString & " error is " & ex.Message)
@@ -74,9 +74,9 @@ Public Class ClassCustomerDB
             ' clear dataset
             Me.mDatasetCustomers.Clear()
             ' OPEN CONNECTION AND FILL DATASET
-            mdbDataAdapter.Fill(mDatasetCustomers, "tblClients")
+            mdbDataAdapter.Fill(mDatasetCustomers, "tblCustomers")
             'copy dataset to dataview
-            myView.Table = mDatasetCustomers.Tables("tblClients")
+            myView.Table = mDatasetCustomers.Tables("tblCustomers")
         Catch ex As Exception
             Throw New Exception("stored procedure is " & strName.ToString & " error is " & ex.Message)
         End Try
@@ -96,9 +96,9 @@ Public Class ClassCustomerDB
             ' clear dataset
             Me.mDatasetCustomers.Clear()
             ' OPEN CONNECTION AND FILL DATASET
-            objCommand.Fill(mDatasetCustomers, "tblClients")
+            objCommand.Fill(mDatasetCustomers, "tblCustomers")
             'copy dataset to dataview
-            CusView.Table = mDatasetCustomers.Tables("tblClients")
+            CusView.Table = mDatasetCustomers.Tables("tblCustomers")
         Catch ex As Exception
             Throw New Exception("params are " & strSPName.ToString & " " & strParamName.ToString & " " & strParamValue.ToString _
                                 & " error is " & ex.Message)

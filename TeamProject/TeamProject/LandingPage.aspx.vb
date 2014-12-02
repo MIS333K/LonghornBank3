@@ -2,7 +2,7 @@
 
     Inherits System.Web.UI.Page
 
-    Dim DB As New ClassEmployeeDB
+
 
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
@@ -21,15 +21,15 @@
 
     Protected Sub btnEmployeeLogin_Click(sender As Object, e As EventArgs) Handles btnEmployeeLogin.Click
 
-        Dim strCusEmail As String
-        Dim strCusPassword As String
+        Dim strEmpID As String
+        Dim strEmpPassword As String
         Dim Valid As New ClassValidate
-        Dim CustomerDB As New ClassCustomerDB
+        Dim EmpDB As New ClassEmployeeDB
 
         'check id for letters
-        strCusEmail = Valid.CheckDigits(txtEmpLoginID.Text)
+        strEmpID = Valid.CheckDigits(txtEmpLoginID.Text)
         'if id contains letters then bad login
-        If strCusEmail = False Then
+        If strEmpID = False Then
             lblMessage.Text = "Incorrect Employee ID or password"
             EmployeeLoginVisible()
             Exit Sub
@@ -37,9 +37,9 @@
 
 
         'validate username
-        strCusEmail = CustomerDB.CheckEmail(txtEmpLoginID.Text)
+        strEmpID = EmpDB.CheckEmpID(txtEmpLoginID.Text)
         'if username bad,
-        If strCusEmail = False Then
+        If strEmpID = False Then
             ' message and exit
             lblMessage.Text = "Incorrect Employee username or password"
             EmployeeLoginVisible()
@@ -47,9 +47,9 @@
         End If
 
         'checkpassword
-        strCusPassword = CustomerDB.CheckPassword(txtEmpLoginPassword.Text)
+        strEmpPassword = EmpDB.CheckPassword(txtEmpLoginPassword.Text)
         'if password bad
-        If strCusPassword = False Then
+        If strEmpPassword = False Then
             'message and exit
             lblMessage.Text = ("Incorrect Employee username or password")
             EmployeeLoginVisible()
@@ -72,7 +72,7 @@
 
 
         'create session EmpType and store this employee's information there for next form 
-        Session("EmpType") = DB.CustDataset.Tables("tblemployee").Rows(0).Item("EmpType").ToString 'you get this out of row zero in emp dataset
+        Session("EmpType") = EmpDB.CustDataset.Tables("tblemployee").Rows(0).Item("EmpType").ToString 'you get this out of row zero in emp dataset
         'call next page (view customers)
         Response.Redirect("CusHome.aspx")
     End Sub
@@ -100,19 +100,11 @@
         Dim strCusID As String
         Dim strCusPassword As String
         Dim Valid As New ClassValidate
-
-        'check id for letters
-        strCusID = Valid.CheckDigits(txtCusLoginID.Text)
-        'if id contains letters then bad login
-        If strCusID = False Then
-            lblCusLoginMessage.Text = "Incorrect E-mail or Password"
-            CustomerLoginVisible()
-            Exit Sub
-        End If
+        Dim CusDB As New ClassCustomerDB
 
 
         'validate username
-        strCusID = DB.CheckEmpID(txtCusLoginID.Text)
+        strCusID = CusDB.CheckEmail(txtCusLoginID.Text)
         'if username bad,
         If strCusID = False Then
             ' message and exit
@@ -122,7 +114,7 @@
         End If
 
         'checkpassword
-        strCusPassword = DB.CheckPassword(txtCusLoginPassword.Text)
+        strCusPassword = CusDB.CheckPassword(txtCusLoginPassword.Text)
         'if password bad,
         If strCusPassword = False Then
             'message and exit
@@ -147,7 +139,7 @@
 
 
         'create session EmpType and store this employee's information there for next form 
-        Session("EmpType") = DB.CustDataset.Tables("tblemployee").Rows(0).Item("EmpType").ToString 'you get this out of row zero in emp dataset
+        'Session("EmpType") = CusDB.CustDataset.Tables("tblCustomers").Rows(0).Item("EmpType").ToString 'you get this out of row zero in emp dataset
         'call next page (view customers)
         Response.Redirect("CusHome.aspx")
     End Sub
