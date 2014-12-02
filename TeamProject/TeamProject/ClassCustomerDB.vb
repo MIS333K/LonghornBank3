@@ -36,7 +36,7 @@ Public Class ClassCustomerDB
 
     Public Sub GetAllCustomers()
         Dim strQuery As String
-        strQuery = "select * from tblCustomers ORDER BY LastName"
+        strQuery = "select * from tblClients ORDER BY LastName"
         SelectQuery(strQuery)
 
     End Sub
@@ -56,7 +56,7 @@ Public Class ClassCustomerDB
             'clear the dataset before filling
             mDatasetCustomers.Clear()
             'fill the dataset
-            mdbDataAdapter.Fill(mDatasetCustomers, "tblCustomers")
+            mdbDataAdapter.Fill(mDatasetCustomers, "tblClients")
             mdbConn.Close()
         Catch ex As Exception
             Throw New Exception("Query is " & strQuery.ToString & " error is " & ex.Message)
@@ -74,9 +74,9 @@ Public Class ClassCustomerDB
             ' clear dataset
             Me.mDatasetCustomers.Clear()
             ' OPEN CONNECTION AND FILL DATASET
-            mdbDataAdapter.Fill(mDatasetCustomers, "tblCustomers")
+            mdbDataAdapter.Fill(mDatasetCustomers, "tblClients")
             'copy dataset to dataview
-            myView.Table = mDatasetCustomers.Tables("tblCustomers")
+            myView.Table = mDatasetCustomers.Tables("tblClients")
         Catch ex As Exception
             Throw New Exception("stored procedure is " & strName.ToString & " error is " & ex.Message)
         End Try
@@ -96,9 +96,9 @@ Public Class ClassCustomerDB
             ' clear dataset
             Me.mDatasetCustomers.Clear()
             ' OPEN CONNECTION AND FILL DATASET
-            objCommand.Fill(mDatasetCustomers, "tblCustomers")
+            objCommand.Fill(mDatasetCustomers, "tblClients")
             'copy dataset to dataview
-            CusView.Table = mDatasetCustomers.Tables("tblCustomers")
+            CusView.Table = mDatasetCustomers.Tables("tblClients")
         Catch ex As Exception
             Throw New Exception("params are " & strSPName.ToString & " " & strParamName.ToString & " " & strParamValue.ToString _
                                 & " error is " & ex.Message)
@@ -182,7 +182,7 @@ Public Class ClassCustomerDB
         'purpose: add customer profiles to database
         'author: Jee-Ho Kang
 
-        mstrQuery = "INSERT INTO tblClients (ClientID, FirstName, MI, LastName, Password, Address, ZipCode, Email, ZipCode, Phone, DOB) VALUES (" & _
+        mstrQuery = "INSERT INTO tblClients (ClientID, FirstName, MI, LastName, Password, Address, ZipCode, Email, Phone, DOB) VALUES (" & _
        "'" & strClientID & "', " & _
        "'" & strFirstName & "', " & _
        "'" & strMI & "', " & _
