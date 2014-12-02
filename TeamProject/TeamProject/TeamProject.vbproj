@@ -161,6 +161,7 @@
     <Content Include="LonghornBankLogo.jpg" />
     <Content Include="StyleSheet1.css" />
     <Content Include="Web.config" />
+    <Content Include="EmpModify.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClassAccountsDB.vb" />
@@ -276,6 +277,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="EmpModify.aspx.designer.vb">
+      <DependentUpon>EmpModify.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmpModify.aspx.vb">
+      <DependentUpon>EmpModify.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
