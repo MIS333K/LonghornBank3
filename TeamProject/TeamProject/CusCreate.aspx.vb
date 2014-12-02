@@ -9,20 +9,24 @@ Public Class CusCreate
     Dim DBvalid As New ClassValidate
     Dim strRecordID As String
     Dim strClientID As String
+    Dim intClientIDCount As Integer
     Dim mstrQuery As String
 
     Protected Sub btnConfirm_Click(sender As Object, e As EventArgs) Handles btnConfirm.Click
 
         NoBlanks()
         Validations()
-        '********figure out a way to make a new client ID
+        'assigns new client ID
+        intClientIDCount = 1000000001 + DBcus.CusView.Count
+        strClientID = intClientIDCount.ToString
 
         'mstrQuery
         DBcus.AddCustomer(strClientID, txtFirstName.Text, txtInitial.Text, txtLastName.Text, txtPassword.Text, txtAddress.Text, txtZip.Text, txtEmail.Text, txtPhone.Text, txtBirth.Text)
         DBcus.UpdateDB(mstrQuery)
 
         'returns a message
-        lblMsg.Text = "Added!"
+        'lblMsg.Text = "Added!"
+        Response.Redirect("CusNewAcc.aspx")
     End Sub
 
     '***************Subs***********
@@ -123,13 +127,30 @@ Public Class CusCreate
         End If
     End Sub
 
+    Sub Clear()
+        txtLastName.Text = ""
+        txtFirstName.Text = ""
+        txtInitial.Text = ""
+        txtAddress.Text = ""
+        txtBirth.Text = ""
+        txtCity.Text = ""
+        txtEmail.Text = ""
+        txtPassword.Text = ""
+        txtConfirmPass.Text = ""
+        txtState.Text = ""
+        txtZip.Text = ""
+        txtPhone.Text = ""
+
+    End Sub
 
     Protected Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
 
     End Sub
 
+
     Protected Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
-        '**********return back to login screen or create new account screen
+        '**********return back to login screen 
+        Clear()
     End Sub
 
     '*******make so if they haven't created a new bank account they return back home
