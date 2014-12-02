@@ -1,0 +1,70 @@
+﻿body {
+ font-family: Corbel;
+ width: 100%;
+}
+
+
+#header {
+    background-color:white;
+    width:100%;
+    float: left;
+}
+#logo {
+    width: 42%;
+    float: left;
+}
+#links {
+     width:57%;
+    float: inherit;
+    
+}
+.linkbutton {
+    padding:60px;
+}
+#login {
+    width:30%;
+    margin-top:70px;
+    border:thin;
+    border-color:gray;
+}
+#customer_login {
+    text-align:center;
+    margin-top:20px;
+
+}
+#employee_login {
+    text-align:center;
+    margin-top:20px;
+
+}
+#toggle {
+    text-align: center;
+    border:thin;
+    border-color: lightgray;
+}
+#service {
+    float:right;
+    width:26%;
+}
+#servicebody {
+width: 100%;
+position:absolute; 
+background-color:gray;
+}
+#nav {
+   font-size:larger;
+    margin-top:82px;
+    margin-left:12px;
+    
+}
+#footer {
+    width: 100%;
+}
+#left_footer {
+    width:40%;
+    float:left;
+}
+#right_footer {
+    width:59%; 
+    float:right;
+}
